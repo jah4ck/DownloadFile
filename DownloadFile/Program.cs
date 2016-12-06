@@ -13,7 +13,6 @@ namespace DownloadFile
     {
         static void Main(string[] args)
         {
-            ReferenceWSCtrlPc.WSCtrlPc ws = new ReferenceWSCtrlPc.WSCtrlPc();
             Trace MyTrace = new Trace();
             string codeappli = "DownloadFile.exe";
             DateTime datetraitement = DateTime.Now;
