@@ -20,13 +20,17 @@ namespace DownloadFile
             Object Guid = Registry.GetValue(@"HKEY_USERS\.DEFAULT\Software\CtrlPc\Version", "GUID", null);
             try
             {
-                MyTrace.WriteLog("Téléchargement de " + args[1],2,codeappli);
-                string uri = linkDownload + args[1];
-                string dest = @"C:\ProgramData\CtrlPc\"+args[0]+@"\"+args[1];
-                WebClient webClient = new WebClient();
-                webClient.DownloadFile(new Uri(uri), dest);
-                datetraitement = DateTime.Now;
-                MyTrace.WriteLog("Fin du téléchargement de " + args[1], 2, codeappli);
+                if (args[0].Length >2 && args[1].Length>2)
+                {
+                    MyTrace.WriteLog("Téléchargement de " + args[1], 2, codeappli);
+                    string uri = linkDownload + args[1];
+                    string dest = @"C:\ProgramData\CtrlPc\" + args[0] + @"\" + args[1];
+                    WebClient webClient = new WebClient();
+                    webClient.DownloadFile(new Uri(uri), dest);
+                    datetraitement = DateTime.Now;
+                    MyTrace.WriteLog("Fin du téléchargement de " + args[1], 2, codeappli);
+                }
+                
             }
             catch (Exception err)
             {
